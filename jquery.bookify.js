@@ -4,12 +4,14 @@ var lines_number = 16;
 var line_height = 30;
 var scroll_step = lines_number * line_height;
 
+var log;
+
 $(function() {
   $('body').wrapInner('<section id="book" />');
   function up() { $('#book').animate({scrollTop:"-="+scroll_step+"px"}, 0); }
   function down() { $('#book').animate({scrollTop:"+="+scroll_step+"px"}, 0); }
-	$(window).click(function(e){ if ( e.clientY < $(this).height() / 2 ) { up(); } else { down(); } });
-	$(window).keyup(function(e) { if (e.keyCode == 40 || e.keyCode == 32) { down(); } else if (e.keyCode == 38) { up(); } });
+	$(window).click(function(e){if(e.target.nodeName == "HTML"){if(e.clientY < $(this).height()/2){up();}else{down();}}});
+	$(window).keyup(function(e){if(e.keyCode == 40 || e.keyCode == 32){down();}else if(e.keyCode == 38) {up();}});
 });
 
 document.write(
