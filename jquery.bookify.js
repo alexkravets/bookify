@@ -21,7 +21,7 @@ document.write(
   "  top: 50%;" +
   "  left: 50%;" +
   "  overflow: hidden;" +
-  "  font-family: Arial;" +
+  "  font-family: Georgia,serif;" +
   "  font-size: 24px;" +
   "  line-height: "+line_height+"px;" +
   "  width: 900px;" +
@@ -29,6 +29,6 @@ document.write(
   "  margin-top: -"+scroll_step/2+"px;" +
   "  margin-left: -450px;" +
   "}" +
-  "#book p { margin-bottom: "+line_height+"px; }" +
+  "#book p { margin-bottom: "+line_height+"px; padding: 0 5px; }" +
   "</style>"
 );
