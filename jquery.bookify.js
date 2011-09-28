@@ -8,10 +8,11 @@ var log;
 
 $(function() {
   $('body').wrapInner('<section id="book" />');
-  function up() { $('#book').animate({scrollTop:"-="+scroll_step+"px"}, 0); }
-  function down() { $('#book').animate({scrollTop:"+="+scroll_step+"px"}, 0); }
+  function up() { $('#book').animate({scrollTop:"-="+scroll_step+"px"}, 0); localStorage[window.location.href] = $('#book').scrollTop(); }
+  function down() { $('#book').animate({scrollTop:"+="+scroll_step+"px"}, 0); localStorage[window.location.href] = $('#book').scrollTop(); }
 	$(window).click(function(e){if(e.target.nodeName == "HTML"){if(e.clientY < $(this).height()/2){up();}else{down();}}});
 	$(window).keyup(function(e){if(e.keyCode == 40 || e.keyCode == 32){down();}else if(e.keyCode == 38) {up();}});
+	if(localStorage[window.location.href]){$('#book').animate({scrollTop:localStorage[window.location.href]}, 0);}
 });
 
 document.write(
